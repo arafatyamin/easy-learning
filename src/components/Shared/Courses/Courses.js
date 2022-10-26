@@ -16,7 +16,7 @@ const Courses = () => {
                 <p>show courses {coursesData.length}</p>
                     <div className="grid grid-cols-3 gap-4 m-8 h-42">
                     {
-                        coursesData.map(cd=><div>
+                        coursesData.map(cd=><div key={cd._id}>
                             <div className="card  bg-base-100 shadow-xl">
                                 <figure className="px-10 pt-10">
                                     <img src={cd.url} alt="Shoes" className="rounded-xl h-[150px]" />

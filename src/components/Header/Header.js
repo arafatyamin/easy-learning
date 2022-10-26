@@ -1,7 +1,13 @@
 import React from 'react';
+import { useContext } from 'react';
+import { FaMoon, FaSun, FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
+
+    const {user} = useContext(AuthContext)
+
     return (
         <div>
             <div className="navbar bg-base-300">
@@ -21,14 +27,23 @@ const Header = () => {
                     <li><Link to="/course">COURSE</Link></li>
                     <li><Link to="/">FAQ</Link></li>
                     <li><Link to="/">BLOG</Link></li>
-                    <li><Link to="/">THIME ICON</Link></li>
                     
+                    <div className="flex justify-center w-12 ">
+                    <label className="swap swap-rotate">
+                    <input type="checkbox" />
+                        <svg className="swap-on fill-current w-8 h-8" viewBox="0 0 24 24"><FaSun/></svg>
+                        <svg className="swap-off fill-current w-8 h-8" viewBox="0 0 24 24"><FaMoon/></svg>
+                    </label>
+                    </div>
                     </ul>
                 </div>
                 <div className="navbar-end">
-                <Link className="hover:btn hover:btn-primary" to="/">Login</Link>
+                <Link className="hover:btn hover:btn-primary" to="/login">Login</Link>
                 <div className="w-10 rounded-full">
-                    <img alt='' className="rounded-full" src="https://placeimg.com/80/80/people" />
+                    {
+                        user.photoURL ? <img alt={user.displayName} src={user.photoURL} className="rounded-full" /> : <FaUser/>
+                    }
+                    
                 </div>
                 </div>
                 </div>
