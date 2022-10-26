@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import LeftSidebar from '../LeftSidebar/LeftSidebar';
 
 const Courses = () => {
@@ -9,8 +9,9 @@ const Courses = () => {
         <div>
             <div className="flex">
                 <div className="w-1/5">
-                    <LeftSidebar/>
+                    <LeftSidebar />
                 </div>
+
                 <div className="w-4/5">
                 <p>show courses {coursesData.length}</p>
                     <div className="grid grid-cols-3 gap-4 m-8 h-42">
@@ -23,7 +24,7 @@ const Courses = () => {
                                 <div className="card-body items-center text-center">
                                     <h2 className="text-normal">{cd.title}</h2>
                                     <div className="card-actions">
-                                    <button className="btn btn-primary">Buy Now</button>
+                                    <button className="btn btn-primary"><Link to={`/course/${cd._id}`}>Get premium access</Link></button>
                                     </div>
                                 </div>
                             </div>

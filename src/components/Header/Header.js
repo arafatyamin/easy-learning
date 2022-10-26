@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Courses from '../Shared/Courses/Courses';
 
 const Header = () => {
     return (
@@ -15,15 +14,22 @@ const Header = () => {
                     <li><Link to="/course">COURSE</Link></li>                        
                     </ul>
                     </div>
-                    <Link to="/" className="btn btn-ghost normal-case text-xl">daisyUI</Link>
+                    <Link to="/" className="btn btn-ghost normal-case text-xl">EasyLearning</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
                     <li><Link to="/course">COURSE</Link></li>
+                    <li><Link to="/">FAQ</Link></li>
+                    <li><Link to="/">BLOG</Link></li>
+                    <li><Link to="/">THIME ICON</Link></li>
+                    
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link className="btn">Get started</Link>
+                <Link className="hover:btn hover:btn-primary" to="/">Login</Link>
+                <div className="w-10 rounded-full">
+                    <img alt='' className="rounded-full" src="https://placeimg.com/80/80/people" />
+                </div>
                 </div>
                 </div>
         </div>
