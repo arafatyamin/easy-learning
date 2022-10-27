@@ -58,7 +58,7 @@ const Header = () => {
                 
                     <div className="w-10 rounded-full tooltip tooltip-info tooltip-left" data-tip={user?.displayName}>
                         {
-                            user?.photoURL ? <img alt={user.displayName} src={user.photoURL} className="rounded-full"  /> : <FaUser/>
+                            user?.uid ? <img alt={user.displayName} src={user.photoURL} className="rounded-full"  /> : <FaUser/>
                         }
                     </div>
                 </div>

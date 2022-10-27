@@ -15,9 +15,19 @@ const LogIn = () => {
     const {providerLogIn, signIn} = useContext(AuthContext);
 
     const googleProvider = new GoogleAuthProvider()
+    const githubProvider = new GoogleAuthProvider()
 
     const handleGoogleSignIn = () => {
         providerLogIn(googleProvider)
+        .then(result => {
+            const user = result.user;
+            console.log(user)
+        })
+        .catch(err => console.error(err))
+    }
+
+    const handleGithubSignIn =()=>{
+        providerLogIn(githubProvider)
         .then(result => {
             const user = result.user;
             console.log(user)
@@ -69,7 +79,7 @@ const LogIn = () => {
                         </div>
                         <div className="flex justify-center">
                         <button onClick={handleGoogleSignIn} className='text-2xl mr-4'><FaGoogle /></button>
-                        <button className='text-2xl mr-4'><FaGithub></FaGithub></button>
+                        <button onClick={handleGithubSignIn} className='text-2xl mr-4'><FaGithub></FaGithub></button>
                         </div>
                         {
                             error ? <p className='text-red-600'>password wrong</p>: <p></p> 
