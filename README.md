@@ -7,6 +7,10 @@
 * app code : https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-arafatyamin
 
 
-* functionality
-* usage firebase technologies
-* own server
+* Firebase 
+* Context API
+* React Router
+* Tailwind
+* DaisyUi
+* React-PDF
+* React-Icons
