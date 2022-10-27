@@ -25,7 +25,7 @@ const Header = () => {
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/course">COURSE</Link></li>
-                    <li><Link to="/faq">FAQ</Link></li>
+                    <li><Link to="">FAQ</Link></li>
                     <li><Link to="/blog">BLOG</Link></li>                        
                     </ul>
                     </div>
@@ -35,7 +35,7 @@ const Header = () => {
                     <ul className="menu menu-horizontal p-0">
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/course">COURSE</Link></li>
-                    <li><Link to="/faq">FAQ</Link></li>
+                    <li><Link to="">FAQ</Link></li>
                     <li><Link to="/blog">BLOG</Link></li>
                     
                     <div className="flex justify-center w-12 ">
