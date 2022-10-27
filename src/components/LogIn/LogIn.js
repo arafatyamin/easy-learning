@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { GoogleAuthProvider } from 'firebase/auth';
 
 const LogIn = () => {
     const [error, setError] = useState('')
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.form?.pathname || '/';
 
     const {providerLogIn, signIn} = useContext(AuthContext);
 
@@ -33,7 +36,7 @@ const LogIn = () => {
             console.log(user)
             form.reset()
             setError('');
-            navigate('/')
+            navigate(from, {replace: true})
         })
         .catch(err => {
             console.error(err)
