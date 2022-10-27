@@ -6,7 +6,13 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
 
-    const {user} = useContext(AuthContext)
+    const {user, logOut} = useContext(AuthContext)
+
+    const handleLogOut = () => {
+        logOut()
+        .then(() => {})
+        .catch(error =>console.error(error))
+    }
 
     return (
         <div>
@@ -38,13 +44,23 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                <Link className="hover:btn hover:btn-primary" to="/login">Login</Link>
-                <div className="w-10 rounded-full">
-                    {
-                        user.photoURL ? <img alt={user.displayName} src={user.photoURL} className="rounded-full" /> : <FaUser/>
-                    }
-                    
-                </div>
+                
+                {
+                    user?.uid ? 
+                    <>
+                        <Link onClick={handleLogOut} className="hover:btn hover:btn-primary" to="/login">LogOut</Link>
+                    </>
+
+                    :
+                    <Link  className="hover:btn hover:btn-primary" to="/login">Login</Link>
+                }
+                
+                
+                    <div className="w-10 rounded-full tooltip tooltip-info tooltip-left" data-tip={user?.displayName}>
+                        {
+                            user?.photoURL ? <img alt={user.displayName} src={user.photoURL} className="rounded-full"  /> : <FaUser/>
+                        }
+                    </div>
                 </div>
                 </div>
         </div>
