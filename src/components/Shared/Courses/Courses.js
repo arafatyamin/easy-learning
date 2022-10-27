@@ -14,7 +14,7 @@ const Courses = () => {
 
                 <div className="w-4/5">
                 <p>show courses {coursesData.length}</p>
-                    <div className="grid grid-cols-3 gap-4 m-8 h-42">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 m-8 h-42">
                     {
                         coursesData.map(cd=><div key={cd._id}>
                             <div className="card  bg-base-100 shadow-xl">

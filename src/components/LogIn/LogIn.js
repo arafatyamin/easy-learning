@@ -77,16 +77,17 @@ const LogIn = () => {
                             <Link to='/register' className="label-text-alt link link-hover text-lg flex">you don't have account?<p className="text-info">Register</p> </Link>
                         </label>
                         </div>
-                        <div className="flex justify-center">
-                        <button onClick={handleGoogleSignIn} className='text-2xl mr-4'><FaGoogle /></button>
-                        <button onClick={handleGithubSignIn} className='text-2xl mr-4'><FaGithub></FaGithub></button>
-                        </div>
+                        
                         {
                             error ? <p className='text-red-600'>password wrong</p>: <p></p> 
                         }
-                        <div className="form-control mt-6">
+                        <div className="form-control">
                         
                         <button className="btn btn-primary">Login</button>
+                        <div className="flex justify-center mt-6">
+                        <button onClick={handleGoogleSignIn} className='text-2xl mr-4'><FaGoogle /></button>
+                        <button onClick={handleGithubSignIn} className='text-2xl mr-4'><FaGithub></FaGithub></button>
+                        </div>
                         </div>
                     </div>
                     </div>

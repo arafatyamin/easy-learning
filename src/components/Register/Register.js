@@ -5,7 +5,7 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Register = () => {
     const [error, setError] = useState('')
-    const {createUser} = useContext(AuthContext)
+    const {createUser, updateUserProfile} = useContext(AuthContext)
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -14,7 +14,7 @@ const Register = () => {
         const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, photoURL, email, password);
+        // console.log(name, photoURL, email, password);
 
         createUser(email, password)
         .then( result => {
@@ -22,12 +22,22 @@ const Register = () => {
             console.log(user)
             form.reset();
             setError('');
-            Navigate('/')
+            handleUpdateUserProfile(name, photoURL)
         })
         .catch(err => {
             console.error(err)
             setError(err.message)
         })
+    }
+
+    const handleUpdateUserProfile = (name, photoURL) =>{
+        const profile = {
+            displayName: name,
+            photoURL: photoURL,
+        }
+        updateUserProfile(profile)
+        .then(() => {})
+        .catch(err => console.error(err))
     }
 
     return (
@@ -46,7 +56,7 @@ const Register = () => {
                         <label className="label">
                             <span className="label-text">Photo Url</span>
                         </label>
-                        <input name="photoURL" type="text" placeholder="photo url" className="input input-bordered" />
+                        <input name="photoURL" type="text" placeholder="photourl" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                         <label className="label">
