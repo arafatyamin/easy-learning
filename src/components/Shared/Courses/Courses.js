@@ -4,7 +4,7 @@ import LeftSidebar from '../LeftSidebar/LeftSidebar';
 
 const Courses = () => {
     const coursesData = useLoaderData();
-
+    console.log(coursesData);
     return (
         <div>
             <div className="flex">

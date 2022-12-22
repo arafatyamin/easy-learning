@@ -29,7 +29,7 @@ const AuthProvider = ({children}) => {
     }
 
     const updateUserProfile = (profile) => {
-        return updateProfile(auth.currentUser, profile);
+        return updateProfile(auth?.currentUser, profile);
     }
 
     const logOut = () => {
@@ -38,12 +38,10 @@ const AuthProvider = ({children}) => {
     }
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (currentUser)=>{
-            console.log('user inside state change', currentUser);
+        const unsubscribe = onAuthStateChanged(auth, currentUser=>{
             setUser(currentUser);
             setLoading(false);
         });
-
         return () => {
             unsubscribe();
         }
